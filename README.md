@@ -11,7 +11,7 @@ Thank you for any contributions you can make to this project! I will review all 
 If you make any additions that change how the project needs to be run, please update this README with the new instructions.
 
 ## Running the project
-First, be sure to ```npm install``
+First, be sure to ```npm install```
 
 To run the dev server, use ```npm run dev```
 
@@ -91,8 +91,10 @@ If you are unfamiliar with the process of contributing to a project like this an
 
 Basic steps:
 
-1. Clone the repo
+1. If this is your first time, clone the repo
     ```git clone```
+    If you have already cloned the repo, pull the latest changes
+    ```git pull```
 2. Create a new branch
     ```git checkout -b <branch-name>```
     - The branch name should be descriptive of the feature you are working on
