@@ -1,5 +1,3 @@
-import "./App.css";
-
 function App() {
   const data = [
     {
@@ -34,13 +32,16 @@ function App() {
 
   return (
     <div>
-      <h1 className="text-5xl font-bold font-montserrat">
+      <h1 className="text-5xl font-bold font-montserrat mb-4">
         Current Notifications
       </h1>
-      <div>
+      <div className="">
         {data.map((el, index) => (
-          <div key={index}>
-            <a className="text-3xl font-montaga" href={el.link}>
+          <div className="flex" key={index}>
+            <a
+              className="text-3xl font-montaga border-2 rounded bg-linkFill border-linkBorder m-2 p-2 w-screen"
+              href={el.link}
+            >
               {el.name}
             </a>
           </div>

@@ -8,6 +8,10 @@ export default {
       montserrat: ["Montserrat"],
       nats: ["nats"],
     },
+    colors: {
+      linkFill: "#FAFAFA",
+      linkBorder: "#999494",
+    },
     extend: {},
   },
   plugins: [],
