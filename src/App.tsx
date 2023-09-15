@@ -3,6 +3,7 @@ import "./App.css";
 function App() {
   return (
     <>
+      <h1 className="text-5xl font-bold">Current Notifications</h1>
         <h3>Websites that need to be scraped from:</h3>
         <br />
         <a href="https://www.centralbank.go.ke/policy-procedures/legislation-and-guidelines/circulars/">
