@@ -1,8 +1,13 @@
-export default function Banklink(name: string, link: string) {
-  console.log(name);
+import { BankData } from "../../types";
+
+export default function Banklink(props: { data: BankData }) {
+  const { data } = props;
   return (
-    <div>
-      <h1>cool</h1>
-    </div>
+    <a
+      className="text-3xl font-montaga border-2 rounded bg-linkFill border-linkBorder m-2 p-2 w-screen"
+      href={data.link}
+    >
+      {data.name}
+    </a>
   );
 }

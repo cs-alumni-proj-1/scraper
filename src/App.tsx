@@ -1,5 +1,8 @@
+import Banklink from "./components/BankLink";
+import { BankData } from "../types";
+
 function App() {
-  const data = [
+  const data: BankData[] = [
     {
       name: "Central Bank of Kenya",
       link: "https://www.centralbank.go.ke/policy-procedures/legislation-and-guidelines/circulars/",
@@ -32,20 +35,17 @@ function App() {
 
   return (
     <div>
-      <h1 className="text-5xl font-bold font-montserrat mb-4">
-        Current Notifications
-      </h1>
-      <div className="">
-        {data.map((el, index) => (
-          <div className="flex" key={index}>
-            <a
-              className="text-3xl font-montaga border-2 rounded bg-linkFill border-linkBorder m-2 p-2 w-screen"
-              href={el.link}
-            >
-              {el.name}
-            </a>
-          </div>
-        ))}
+      <div className="m-20">
+        <h1 className="text-5xl font-bold font-montserrat mb-4">
+          Current Notifications
+        </h1>
+        <div className="">
+          {data.map((el, index) => (
+            <div className="flex" key={index}>
+              <Banklink data={el} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
