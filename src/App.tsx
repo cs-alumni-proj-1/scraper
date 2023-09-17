@@ -39,7 +39,13 @@ function App() {
       <div>
         <SideNav />
       </div>
-      <div className="flex-1 m-20">
+      <div className="flex-1 my-2 mx-8">
+        <div className="flex justify-end">
+          <input
+            className="rounded border-2 font-montaga p-2 px-6 self-end m-4 border-linkBorder w-1/3"
+            placeholder="Search"
+          />
+        </div>
         <h1 className="text-5xl font-bold font-montserrat mb-4">
           Current Notifications
         </h1>
