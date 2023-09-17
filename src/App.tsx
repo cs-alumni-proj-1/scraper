@@ -1,4 +1,5 @@
 import Banklink from "./components/BankLink";
+import SideNav from "./components/SideNav";
 import { BankData } from "../types";
 
 function App() {
@@ -34,8 +35,11 @@ function App() {
   ];
 
   return (
-    <div>
-      <div className="m-20">
+    <div className="flex h-screen">
+      <div>
+        <SideNav />
+      </div>
+      <div className="flex-1 m-20">
         <h1 className="text-5xl font-bold font-montserrat mb-4">
           Current Notifications
         </h1>

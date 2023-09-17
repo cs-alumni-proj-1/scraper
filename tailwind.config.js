@@ -11,6 +11,7 @@ export default {
     colors: {
       linkFill: "#FAFAFA",
       linkBorder: "#999494",
+      navColor: "#D9D9D9",
     },
     extend: {},
   },
