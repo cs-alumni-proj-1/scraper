@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Banklink from "./components/BankLink";
 import SideNav from "./components/SideNav";
-import { BankData } from "../types";
+import { BankData } from "./types/BankTypes";
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 // const data: BankData[] = new Array(142).fill({ name: "test", link: "test" });
@@ -38,7 +38,7 @@ const data: BankData[] = [
 
 const itemsPerPage = 7;
 
-function App() {
+export default function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -90,5 +90,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

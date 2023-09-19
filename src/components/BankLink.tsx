@@ -1,6 +1,6 @@
-import { BankData } from "../../types";
+import { BankLinkProps } from "../types/BankTypes";
 
-export default function Banklink(props: { data: BankData }) {
+export default function Banklink(props: BankLinkProps) {
   const { data } = props;
   return (
     <a
