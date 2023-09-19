@@ -3,8 +3,6 @@ import Banklink from "./components/BankLink";
 import SideNav from "./components/SideNav";
 import { BankData } from "./types/BankTypes";
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-// const data: BankData[] = new Array(142).fill({ name: "test", link: "test" });
 const data: BankData[] = [
   {
     name: "Central Bank of Kenya",
@@ -36,14 +34,14 @@ const data: BankData[] = [
   },
 ];
 
-const itemsPerPage = 7;
+const ITEMS_PER_PAGE = 7;
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState(1);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
   const currentData = data.slice(startIndex, endIndex);
-  const totalPages = Math.ceil(data.length / itemsPerPage);
+  const totalPages = Math.ceil(data.length / ITEMS_PER_PAGE);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
