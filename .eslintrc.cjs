@@ -23,4 +23,5 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
+  overrides: [{ rules: { "no-unused-vars": off } }],
 };

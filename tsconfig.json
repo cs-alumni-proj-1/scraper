@@ -17,9 +17,13 @@
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["./src/**/*.ts", "./server/**/*.ts", "./db/**/*.ts"],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
+  "include": ["./src/**/*.ts", "src/server/**/*.ts", "./db/**/*.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
