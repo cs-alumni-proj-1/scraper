@@ -23,5 +23,4 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
-  ignorePatterns: ["./server/config/config.js"],
 };
