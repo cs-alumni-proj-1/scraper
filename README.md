@@ -11,59 +11,65 @@ Thank you for any contributions you can make to this project! I will review all 
 If you make any additions that change how the project needs to be run, please update this README with the new instructions.
 
 ## Running the project
-First, be sure to ```npm install```
 
-To run the dev server, use ```npm run dev```
+1. First, be sure to `npm install`
+1. (TEMPORARY) To spin up the database, run `npm run db`. This will spin up a local instance of the database for local development.
+1. To run the dev server, use `npm run dev`
 
 ## What does the database look like?
+
 A database has not been decided on yet, and is up for discussion.
 
 Likely, this will be a relational database, and at the moment we know we will need the following information within our tables:
 
 ### Banks
+
 | id | name | region | url |
 
 ### Circulars
+
 | id | bank_id | title | url | date_published |
 
 ### Users
-| id | email |
+
+| id | email | password
 
 ### User Banks
+
 | id | user_id | bank_id |
 
 There may be a more optimal way to handle this, but it is important that users can sign up for specific banks, or for all banks in a specific region.
 
-
 ## Tasks
+
 - [x] Set up the project so it is an empty React/Node application
 - [ ] Create GH organization for others to collaborate
-- [ ] Create a database with the following tables and columns:
-    - [ ] Banks
-        - [ ] id
-        - [ ] name
-        - [ ] region
-        - [ ] url
-    - [ ] Circulars
-        - [ ] id
-        - [ ] bank_id
-        - [ ] title
-        - [ ] url
-        - [ ] date_published
-    - [ ] Users
-        - [ ] id
-        - [ ] email
-    - [ ] User Banks
-        - [ ] id
-        - [ ] user_id
-        - [ ] bank_id
+- [x] Create a database with the following tables and columns:
+  - [ ] Banks
+    - [ ] id
+    - [ ] name
+    - [ ] region
+    - [ ] url
+  - [ ] Circulars
+    - [ ] id
+    - [ ] bank_id
+    - [ ] title
+    - [ ] url
+    - [ ] date_published
+  - [ ] Users
+    - [ ] id
+    - [ ] email
+  - [ ] User Banks
+    - [ ] id
+    - [ ] user_id
+    - [ ] bank_id
 - [ ] Create a scraper to scrape the following websites:
-    - [ ] [Central Bank of Kenya]("https://www.centralbank.go.ke/policy-procedures/legislation-and-guidelines/circulars/")
-    - [ ] [Central Bank of Nigeria](https://www.cbn.gov.ng/documents/circulars.asp?beginrec=1&endrec=20&keyword=&from=&tod=)
-    - [ ] [Bank of Zambia](https://www.boz.zm/circulars.htm)
-    - [ ] [Reserve Bank of Malawi](https://www.rbm.mw/MediaCenter/PressReleases/)
-    - [ ] [National Bank of Rwanda](https://www.bnr.rw/news-publications/news/news-press-release/)
-    - [ ] [Bank of Tanzania](https://www.bot.go.tz/Publications/Filter/39)
+  - [ ] [Central Bank of Kenya]("https://www.centralbank.go.ke/policy-procedures/legislation-and-guidelines/circulars/")
+  - [ ] [Central Bank of Nigeria](https://www.cbn.gov.ng/documents/circulars.asp?beginrec=1&endrec=20&keyword=&from=&tod=)
+  - [ ] [Bank of Zambia](https://www.boz.zm/circulars.htm)
+  - [ ] [Reserve Bank of Malawi](https://www.rbm.mw/MediaCenter/PressReleases/)
+  - [ ] [National Bank of Rwanda](https://www.bnr.rw/news-publications/news/news-press-release/)
+  - [ ] [Bank of Tanzania](https://www.bot.go.tz/Publications/Filter/39)
 - [ ] Create a page where users can enter their email and select which banks they want to receive notifications for
 - [ ] Create a way for users to unsubscribe from notifications
 - [ ] Create a way for users to update their email address
@@ -72,7 +78,7 @@ There may be a more optimal way to handle this, but it is important that users c
 - [ ] Create an email template to be sent out to clients who sign up for notifications
 - [ ] Create a method that emails users when a new circular is found
 
-**Note: Instead of having users go through a sign up flow, and to avoid authentication/passwords for now, we can simply have a page where the user enters their email address, selects the banks/regions they want to receive notifications for, and press a button to confirm.
+\*\*Note: Instead of having users go through a sign up flow, and to avoid authentication/passwords for now, we can simply have a page where the user enters their email address, selects the banks/regions they want to receive notifications for, and press a button to confirm.
 
 They'll then get sent an email to confirm their email address is working and valid, and can click to confirm.
 
@@ -85,39 +91,42 @@ This should avoid the need for authentication, and will be a simple way to get u
 This can be revisited if it does not meet the clients needs or if the client's users request a more robust sign up process.
 
 ## Contributing
+
 If you would like to contribute, please clone the repo, create a new branch, and submit a PR.
 
 If you are unfamiliar with the process of contributing to a project like this and have questions, please feel free to reach out to me. The steps below are a general overview of the process, in case you need a refresher.
 
+## Getting started
+
 Basic steps:
 
 1. If this is your first time, clone the repo
-    ```git clone```
-    If you have already cloned the repo, pull the latest changes
-    ```git pull```
+   `git clone`
+   If you have already cloned the repo, pull the latest changes
+   `git pull`
 2. Create a new branch
-    ```git checkout -b <branch-name>```
-    - The branch name should be descriptive of the feature you are working on
+   `git checkout -b <branch-name>`
+   - The branch name should be descriptive of the feature you are working on
 3. Make your changes
 4. Add your changes locally
-    ```git add <file-name>```
-    If you want to add all changes, you can use ```git add .```, but please be sure to review your changes before committing them. You can do this with a ```git status``` to ensure no unwanted changes are being added.
+   `git add <file-name>`
+   If you want to add all changes, you can use `git add .`, but please be sure to review your changes before committing them. You can do this with a `git status` to ensure no unwanted changes are being added.
 5. Commit your changes
-    ```git commit -m "your commit message"```
+   `git commit -m "your commit message"`
 6. Push your changes to the remote repo
-    ```git push origin <branch-name>```
+   `git push origin <branch-name>`
 7. Create a PR
-    - Go to the repo on GitHub
-    - Click on the "Pull Requests" tab
-    - Click the green "New Pull Request" button
-    - Select your branch from the dropdown (target branch should be "main")
-    - Add a title and description
-        If this is a frontend task, please add screenshots of the changes you made
-    - Click "Create Pull Request"
+   - Go to the repo on GitHub
+   - Click on the "Pull Requests" tab
+   - Click the green "New Pull Request" button
+   - Select your branch from the dropdown (target branch should be "main")
+   - Add a title and description
+     If this is a frontend task, please add screenshots of the changes you made
+   - Click "Create Pull Request"
 8. Wait for your PR to be reviewed
 9. Make any changes requested
 10. Once your PR is approved, it will be merged into the main branch!
 
-
 ## Figma and Database Schema
+
 TODO

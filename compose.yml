@@ -13,4 +13,4 @@ services:
       - "5432:5432"
     container_name: scraper-db
     volumes:
-      - ./postgres/:/docker-entrypoint-initdb.d/
+      - ./db/postgres/:/docker-entrypoint-initdb.d/
