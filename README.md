@@ -78,7 +78,7 @@ There may be a more optimal way to handle this, but it is important that users c
 - [ ] Create an email template to be sent out to clients who sign up for notifications
 - [ ] Create a method that emails users when a new circular is found
 
-\*\*Note: Instead of having users go through a sign up flow, and to avoid authentication/passwords for now, we can simply have a page where the user enters their email address, selects the banks/regions they want to receive notifications for, and press a button to confirm.
+The user will select the banks/regions they want to receive notifications for, and press a button to confirm.
 
 They'll then get sent an email to confirm their email address is working and valid, and can click to confirm.
 
