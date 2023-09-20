@@ -13,14 +13,21 @@ If you make any additions that change how the project needs to be run, please up
 ## Running the project
 
 1. First, be sure to `npm install`
-1. (TEMPORARY) To spin up the database, run `npm run db`. This will spin up a local instance of the database for local development.
 1. To run the dev server, use `npm run dev`
+
+### Database (Temporary)
+
+A docker image has been made as a temporary method of connecting to a database for local development. You can test the connection and perform any r/w operations using a DB IDE such as DBeaver or Datagrip.
+
+1. To spin up the database, run `npm run db`. This will spin up a local instance of the database.
+
+   - use the credentials provided in the `compose.yml`. These are dummy credentials that will be used temporarily until a mechanism is in place to push docker images to a registry.
+
+1. A db connection has been provided under `db/dbConnection.ts` once a server is made
 
 ## What does the database look like?
 
-A database has not been decided on yet, and is up for discussion.
-
-Likely, this will be a relational database, and at the moment we know we will need the following information within our tables:
+We will need the following information within our tables:
 
 ### Banks
 
