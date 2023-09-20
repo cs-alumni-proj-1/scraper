@@ -15,7 +15,7 @@ const app = express();
 //cross-origin access
 app.use(cors());
 
-//parse body requestut
+//parse body request
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
