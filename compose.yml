@@ -1,0 +1,16 @@
+version: "3"
+services:
+  test:
+    image: scraper-db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - POSTGRES_DB=dummydb
+      - POSTGRES_USER=dummyuser
+      - POSTGRES_PASSWORD=dummypw
+    ports:
+      - "5432:5432"
+    container_name: scraper-db
+    volumes:
+      - ./postgres/:/docker-entrypoint-initdb.d/
