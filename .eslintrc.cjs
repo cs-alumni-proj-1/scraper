@@ -14,8 +14,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
+    project: ["./tsconfig.eslint.json"],
   },
   plugins: ["react-refresh"],
   rules: {
@@ -24,4 +23,5 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
+  ignorePatterns: ["./server/config/config.js"],
 };
