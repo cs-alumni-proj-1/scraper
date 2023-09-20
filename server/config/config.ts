@@ -2,10 +2,9 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const { DBNAME, DBPASS, DBUSER, ENV, HOST, PORT, URI } = process.env;
+const { DBNAME, DBPASS, DBUSER, ENV, HOST, PORT } = process.env;
 
 export const databaseConfig = {
-  connectionString: URI,
   host: HOST ?? "localhost",
   database: DBNAME,
   user: DBUSER,
