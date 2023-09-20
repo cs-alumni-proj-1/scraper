@@ -6,9 +6,9 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - POSTGRES_DB=${DBNAME}
-      - POSTGRES_USER=${DBPASS}
-      - POSTGRES_PASSWORD=${DBUSER}
+      - POSTGRES_DB=test
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
     ports:
       - "5432:5432"
     container_name: scraper-db
