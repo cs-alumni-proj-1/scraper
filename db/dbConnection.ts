@@ -1,5 +1,5 @@
 import { Pool, QueryResult } from "pg";
-import config from "../server/config/config.ts";
+import config from "../server/config/config";
 
 const pool = new Pool(config);
 
