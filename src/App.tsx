@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import Banklink from "./components/BankLink";
 import SideNav from "./components/SideNav";
