@@ -19,3 +19,4 @@ describe("Banklink Component", () => {
     expect(linkElement).toHaveAttribute("href", "https://www.examplebank.com");
   });
 });
+
