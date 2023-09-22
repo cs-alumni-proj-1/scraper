@@ -26,5 +26,10 @@ module.exports = {
     ],
     'prettier/prettier': 'error',
   },
-overrides: [{ rules: { "no-unused-vars": off } }],
+  overrides: [ {
+      files: ['*.js'], // Specify the file pattern(s) that this override should apply to
+      rules: {
+        'no-unused-vars': 'off', // Disable the no-unused-vars rule for the specified files
+      },
+    }],
 };
