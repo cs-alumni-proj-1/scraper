@@ -24,6 +24,11 @@
     "esm": true,
     "experimentalSpecifierResolution": "node"
   },
-  "include": ["./src/**/*.ts", "server/**/*.ts", "./db/**/*.ts"],
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./server/**/*.ts", 
+    "./db/**/*.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
