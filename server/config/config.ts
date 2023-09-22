@@ -11,12 +11,12 @@ export const databaseConfig = {
   password: DBPASS,
   port: Number(PORT) || 5432,
   max: 2,
-  idleTimeoutMillis: 120000,
+  idleTimeoutMillis: 120000
 };
 
 const config = {
   ...databaseConfig,
-  env: ENV,
+  env: ENV
 };
 
 export default config;

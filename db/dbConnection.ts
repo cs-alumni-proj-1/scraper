@@ -16,5 +16,5 @@ module.exports = {
   ) => {
     console.log("Executed Query", text);
     return pool.query(text, params, callback);
-  },
+  }
 };

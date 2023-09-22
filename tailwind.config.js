@@ -7,14 +7,14 @@ export default {
       fontFamily: {
         montaga: ["montaga"],
         montserrat: ["Montserrat"],
-        nats: ["nats"],
+        nats: ["nats"]
       },
       colors: {
         linkFill: "#FAFAFA",
         linkBorder: "#999494",
-        navColor: "#D9D9D9",
-      },
-    },
+        navColor: "#D9D9D9"
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 };

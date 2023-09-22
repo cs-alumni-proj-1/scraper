@@ -16,20 +16,22 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-    project: ["./tsconfig.eslint.json"],
+    project: ["./tsconfig.eslint.json"]
   },
   plugins: ["react-refresh", "prettier"],
   rules: {
     "react-refresh/only-export-components": [
       "warn",
-      { allowConstantExport: true },
+      { allowConstantExport: true }
     ],
-    'prettier/prettier': 'error',
+    "prettier/prettier": "error"
   },
-  overrides: [ {
-      files: ['*.js'], // Specify the file pattern(s) that this override should apply to
+  overrides: [
+    {
+      files: ["*.js"], // Specify the file pattern(s) that this override should apply to
       rules: {
-        'no-unused-vars': 'off', // Disable the no-unused-vars rule for the specified files
-      },
-    }],
+        "no-unused-vars": "off" // Disable the no-unused-vars rule for the specified files
+      }
+    }
+  ]
 };
