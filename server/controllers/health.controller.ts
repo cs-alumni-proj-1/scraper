@@ -33,15 +33,20 @@ export class HealthController {
 
       const page = await context.newPage();
 
-      await page.goto(req.body.link);
+      await page.goto(req.body.link, { waitUntil: 'networkidle'});
 
-      const href = await page.$$eval('a', (links: any[]) => links.map(link => link.href))
+      const pdfLinks = await page.$$('td.pdf_link > a');
 
-      console.log(href);
+      const circulars = [];
+
+      for (const links of pdfLinks) {
+        const link = await links.getAttribute('href');
+        circulars.push(link);
+      }
 
       await browser.close()
 
-      res.status(StatusCodes.OK).json(href);
+      res.status(StatusCodes.OK).json(circulars);
     } catch(e) {
       Logger.error("Error retrieving");
       assertIsError(e);
