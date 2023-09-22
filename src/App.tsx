@@ -1,58 +1,90 @@
-import "./App.css";
+import { useState } from "react";
+import Banklink from "./components/BankLink";
+import SideNav from "./components/SideNav";
+import { BankData } from "./types/BankTypes";
 
-function App() {
+const data: BankData[] = [
+  {
+    name: "Central Bank of Kenya",
+    link: "https://www.centralbank.go.ke/policy-procedures/legislation-and-guidelines/circulars/",
+  },
+  {
+    name: "Central Bank of Nigeria",
+    link: "https://www.cbn.gov.ng/documents/circulars.asp?beginrec=1&endrec=20&keyword=&from=&tod=",
+  },
+  {
+    name: "Bank of Zambia",
+    link: "https://www.boz.zm/circulars.htm",
+  },
+  {
+    name: "Banco de Mozambique",
+    link: "https://www.bancomoc.mz/en/media/communications/?query=&page=1",
+  },
+  {
+    name: "Reserve Bank of Malawi",
+    link: "https://www.rbm.mw/MediaCenter/PressReleases/",
+  },
+  {
+    name: "National Bank of Rwanda",
+    link: "https://www.bnr.rw/news-publications/news/news-press-release/",
+  },
+  {
+    name: "Bank of Tanzania",
+    link: "https://www.bot.go.tz/Publications/Filter/39",
+  },
+];
+
+const ITEMS_PER_PAGE = 7;
+
+export default function App() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const currentData = data.slice(startIndex, endIndex);
+  const totalPages = Math.ceil(data.length / ITEMS_PER_PAGE);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
   return (
-    <>
-        <h3>Websites that need to be scraped from:</h3>
-        <br />
-        <a href="https://www.centralbank.go.ke/policy-procedures/legislation-and-guidelines/circulars/">
-          Central Bank of Kenya
-        </a>
-        <br />
-        <a href="https://www.cbn.gov.ng/documents/circulars.asp?beginrec=1&endrec=20&keyword=&from=&tod=">
-          Central Bank of Nigeria
-        </a>
-        <br />
-        <a href="https://www.boz.zm/circulars.htm">Bank of Zambia</a>
-        <br />
-        <a href="https://www.bancomoc.mz/en/media/communications/?query=&page=1">
-          Banco de Mozambique
-        </a>
-        <br />
-        <a href="https://www.rbm.mw/MediaCenter/PressReleases/">
-          Reserve Bank of Malawi
-        </a>
-        <br />
-        <a href="https://www.bnr.rw/news-publications/news/news-press-release/">
-          National Bank of Rwanda
-        </a>
-        <br />
-        <a href="https://www.bot.go.tz/Publications/Filter/39">
-          Bank of Tanzania
-        </a>
-        <br />
-        <a href="">Bank 5</a>
-        <br />
-        <a href="">Bank 5</a>
-        <br />
-        <a href="">Bank 5</a>
-        <br />
-        <a href="">Bank 5</a>
-
-        <br />
-        <h3>What does this app do?</h3>
-        <p>
-          This app scrapes the web once a day to see if a new circular has been
-          published.
-        </p>
-        <p>
-          If the new circular has been published, it notifies the appropriate
-          people via email and sends them a link to the published circular.
-        </p>
-
-        <br />
-    </>
+    <div className="flex h-screen">
+      <div>
+        <SideNav />
+      </div>
+      <div className="flex-1 my-2 mx-8">
+        <div className="flex justify-end">
+          <input
+            className="rounded border-2 font-montaga p-2 px-6 self-end m-4 border-linkBorder w-1/3"
+            placeholder="Search"
+          />
+        </div>
+        <h1 className="text-5xl font-bold font-montserrat mb-4">
+          Current Notifications
+        </h1>
+        <div className="">
+          {currentData.map((el, index) => (
+            <div className="flex" key={index}>
+              <Banklink data={el} />
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-center items-center mt-4">
+          <div className="flex space-x-2 fixed bottom-10 ">
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i}
+                className={`rounded-full w-8 h-8 border-linkBorder border-2 ${
+                  currentPage === i + 1 ? "bg-gray-300" : ""
+                }`}
+                onClick={() => handlePageChange(i + 1)}
+              >
+                {i + 1}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
-
-export default App;
