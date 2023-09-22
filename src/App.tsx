@@ -2,6 +2,7 @@ import { useState } from "react";
 import Banklink from "./components/BankLink";
 import SideNav from "./components/SideNav";
 import { BankData } from "./types/BankTypes";
+import React from "react";
 
 const data: BankData[] = [
   {

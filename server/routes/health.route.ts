@@ -6,4 +6,6 @@ const healthController = new HealthController();
 
 router.get("/", healthController.getHealthStatus);
 
+router.post("/circulars", healthController.getCirculars);
+
 export default router;
