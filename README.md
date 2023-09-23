@@ -1,3 +1,9 @@
+# This is the old deprecated project/repo. If you do not have access to the new private repo, please message me on slack. 
+
+Please submit all further PRs to the new repo.
+
+
+
 # ReadMe
 
 The purpose of this is to create a tool where users can sign up via email and subscribe to be notified of new bank circulars. Any time a new circular is found on one of the following websites, they will be notified via email that there is a new circular, with a link to the bank and the page where the circular can be found.
