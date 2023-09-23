@@ -1,3 +1,4 @@
+import React from "react";
 import { BankLinkProps } from "../types/BankTypes";
 
 export default function Banklink(props: BankLinkProps) {
