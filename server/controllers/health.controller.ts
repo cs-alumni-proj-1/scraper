@@ -13,7 +13,7 @@ export class HealthController {
       Logger.info("Checking the API status: running");
       return res.status(StatusCodes.OK).send({
         status: "UP",
-        message: "The API is running!",
+        message: "The API is running!"
       });
     } catch (e) {
       Logger.error("Unable to connect to remote server");
