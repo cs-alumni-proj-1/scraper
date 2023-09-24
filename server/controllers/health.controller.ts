@@ -4,8 +4,12 @@ import Logger from "../utils/logger";
 import { StatusCodes } from "http-status-codes";
 import { assertIsError } from "../utils/guards";
 import { chromium, devices } from "playwright";
-import fs from 'fs';
+// import fs from 'fs';
 import axios from 'axios';
+import AWS from 'aws-sdk';
+const lambda = new AWS.Lambda({region: 'us-east-1'});
+AWS.config.update({region: 'us-east-1'});
+console.log('AWS CONFIG?', AWS.config);
 
 export class HealthController {
   constructor() {
@@ -48,13 +52,37 @@ export class HealthController {
         const absoluteUrl = `https://centralbank.go.ke${link}`
         //@ts-ignore
         const file = await axios.get(absoluteUrl, { responseType: 'arraybuffer'});
-        const pdfPath = `server/circulars/circular${i}.pdf`;
-        console.log('WRITING FILE');
-        //@ts-ignore
-        await fs.writeFile(pdfPath, file.data, err => {
-          if(err) throw err;
-          console.log('SAVED!');
+        const base64file = await Buffer.from(file.data, 'binary').toString('base64');
+        const pdfName = `circular${i}`;
+        const lambdaPayload = {
+          pdf_data: base64file,
+          pdfName: pdfName
+        }
+
+        const params = {
+          FunctionName: 'arn:aws:lambda:us-east-1:972214670213:function:writeOnlyS3',
+          Payload: JSON.stringify(lambdaPayload)
+        };
+
+        console.log('INVOKING LAMBDA FUNCTION');
+        // console.log('AWS CONFIG?', AWS.config);
+
+        await lambda.invoke(params, (err: any, data: any) => {
+          if(err) {
+            console.error(err);
+          } else {
+            console.log('Lambda function executed')
+          }
         });
+
+        // console.log('WRITING FILE');
+        // //@ts-ignore
+        // await fs.writeFile(pdfPath, file.data, err => {
+        //   if(err) throw err;
+        //   console.log('SAVED!');
+        // });
+
+        console.log('WRITTEN TO S3 BUCKET')
 
         circulars.push(link);
       }
